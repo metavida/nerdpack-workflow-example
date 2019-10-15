@@ -16,5 +16,11 @@ jobs:
     - uses: actions/setup-node@v1
       with:
         node-version: 12.x
-    - run: npm version patch
-    - run: git push --tags master origin/master
+    - name: Setup git user
+      run: |
+        git config --global user.name "$GITHUB_ACTOR"
+        git config --global user.email "${GITHUB_ACTOR}@example.com"
+    - name: Bump the Nerdpack version
+      run: npm version patch
+    - name: Push changes
+      run: git push --tags master origin/master
