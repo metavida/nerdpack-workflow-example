@@ -1,0 +1,7 @@
+{
+    "schemaType": "LAUNCHER",
+    "id": "nerdpack-workflow-example-launcher",
+    "description": "Describe me",
+    "displayName": "NerdpackWorkflowExample",
+    "rootNerdletId": "nerdpack-workflow-example-nerdlet"
+}
