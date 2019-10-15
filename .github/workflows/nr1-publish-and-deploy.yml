@@ -1,7 +1,11 @@
-name: New Relic One Publish & Deploy
+# Any time a "version" tag is pushed (via the "Version Bump" workflow)
+# We will deploy and publish the Nerdpack to New Relic One
 
-on: [push]
-
+name: New Relic One Publish & Deploy on tag
+on:
+  push:
+    tags:
+      - 'v*'
 jobs:
   publish-and-deploy:
     runs-on: ubuntu-latest
