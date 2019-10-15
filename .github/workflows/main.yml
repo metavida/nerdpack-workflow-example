@@ -1,0 +1,12 @@
+name: New Relic One Publish & Deploy
+
+on: [push]
+
+jobs:
+  publish-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: metavida/nr1-publish-and-deploy@f8c8d8f
+      with:
+        api-key: ${{ secrets.NR_PERSONAL_API_KEY }}
+        region: us
