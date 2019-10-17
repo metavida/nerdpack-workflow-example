@@ -24,12 +24,12 @@ jobs:
       run: npm version patch
     - name: Configure git with push access
       run: |
-        ls -alh ~/
         mkdir ~/.ssh
         ssh-keyscan -t rsa github.com > ~/.ssh/known_hosts &&
         echo "${{ secrets.DEPLOY_KEY }}" > ~/.ssh/id_rsa &&
         chmod 400 ~/.ssh/id_rsa
     - name: Push changes
       run: |
+        git remote set-url --push origin git@github.com:metavida/nerdpack-workflow-example.git
         git remote -v
         git push --tags origin HEAD:master
