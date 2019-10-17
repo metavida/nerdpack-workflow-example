@@ -16,11 +16,19 @@ jobs:
     - uses: actions/setup-node@v1
       with:
         node-version: 12.x
-    - name: Setup git user
+    - name: Configure git to commit
       run: |
         git config --global user.name "$GITHUB_ACTOR"
         git config --global user.email "${GITHUB_ACTOR}@example.com"
     - name: Bump the Nerdpack version
       run: npm version patch
+    - name: Configure git with push access
+      run: |
+        mkdir /root/.ssh
+        ssh-keyscan -t rsa github.com > /root/.ssh/known_hosts &&
+        echo "${{ secrets.DEPLOY_KEY }}" > /root/.ssh/id_rsa &&
+        chmod 400 /root/.ssh/id_rsa
     - name: Push changes
-      run: git push --tags origin HEAD:master
+      run: |
+        git remote -v
+        git push --tags origin HEAD:master
