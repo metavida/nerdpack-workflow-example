@@ -24,7 +24,7 @@ jobs:
       run: curl -s https://cli.nr-ext.net/installer.sh | sudo bash
     - name: Publish and deploy Nerdpack
       env:
-        NR1_API_KEY: ${{ secrets.NR1_API_KEY }}
+        NR1_API_KEY: ${{ secrets.NR_PERSONAL_API_KEY }}
       run: |
         nr1 profiles:add --name workflow --api-key "$NR1_API_KEY" --region "$NR1_REGION" &&
         nr1 nerdpack:publish --profile=workflow &&
