@@ -24,10 +24,11 @@ jobs:
       run: npm version patch
     - name: Configure git with push access
       run: |
-        mkdir /root/.ssh
-        ssh-keyscan -t rsa github.com > /root/.ssh/known_hosts &&
-        echo "${{ secrets.DEPLOY_KEY }}" > /root/.ssh/id_rsa &&
-        chmod 400 /root/.ssh/id_rsa
+        ls -alh ~/
+        mkdir ~/.ssh
+        ssh-keyscan -t rsa github.com > ~/.ssh/known_hosts &&
+        echo "${{ secrets.DEPLOY_KEY }}" > ~/.ssh/id_rsa &&
+        chmod 400 ~/.ssh/id_rsa
     - name: Push changes
       run: |
         git remote -v
