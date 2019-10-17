@@ -2,9 +2,10 @@
 # We will deploy and publish the Nerdpack to New Relic One
 name: Nerdpack Publish & Deploy on tag
 on:
-  push:
-    tags:
-      - 'v*'
+  # push:
+  #   tags:
+  #     - 'v*'
+  [push]
 
 jobs:
   publish-and-deploy:
