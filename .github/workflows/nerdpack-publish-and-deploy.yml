@@ -10,7 +10,6 @@ jobs:
   publish-and-deploy:
     runs-on: ubuntu-latest
     env:
-      NR1_PROFILE: nr1-in-docker
       NR1_REGION: us
       NR1_CHANNEL: DEV
 
@@ -24,6 +23,6 @@ jobs:
       run: curl -s https://cli.nr-ext.net/installer.sh | bash
     - name: Publish and deploy Nerdpack
       run: |
-        nr1 profiles:add --name "$NR1_PROFILE" --api-key "${{secrets.NR1_API_KEY}}" --region "$NR1_REGION" &&
-        nr1 nerdpack:publish --profile="$NR1_PROFILE" &&
+        nr1 profiles:add --name workflow --api-key "${{secrets.NR1_API_KEY}}" --region "$NR1_REGION" &&
+        nr1 nerdpack:publish &&
         nr1 nerdpack:deploy --channel="$NR1_CHANNEL"
