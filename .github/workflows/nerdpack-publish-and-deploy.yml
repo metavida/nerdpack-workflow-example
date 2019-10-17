@@ -19,8 +19,15 @@ jobs:
       with:
         node-version: '12.x'
 
+    - name: Some permissio tests
+      run: |
+        whoami
+        sudo whoami
+        ls -al /etc
+        ls -al /etc/apt
+        date
     - name: Install nr1 CLI
-      run: curl -s https://cli.nr-ext.net/installer.sh | bash
+      run: curl -s https://cli.nr-ext.net/installer.sh | sudo bash
     - name: Publish and deploy Nerdpack
       run: |
         nr1 profiles:add --name workflow --api-key "${{secrets.NR1_API_KEY}}" --region "$NR1_REGION" &&
