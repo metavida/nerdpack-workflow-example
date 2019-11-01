@@ -2,7 +2,7 @@
     "private": true,
     "name": "nerdpack-workflow-example",
     "description": "Nerdpack nerdpack-workflow-example",
-    "version": "0.1.16",
+    "version": "0.1.17",
     "scripts": {
         "start": "nr1 nerdpack:serve",
         "test": "exit 0"
