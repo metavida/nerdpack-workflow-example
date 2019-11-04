@@ -4,6 +4,6 @@ import React from 'react';
 
 export default class NerdpackWorkflowExample extends React.Component {
     render() {
-        return <h1>Hello, GitHub Actions!</h1>;
+        return <h1>Hello, world!</h1>;
     }
 }
